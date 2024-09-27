@@ -25,11 +25,11 @@ public:
 
         for (const auto& booking : singleBookings) {
             if (booking.start < end && booking.end > start) {
-                overlapSingleBookings.push_back(Interval(max(booking.start, start), min(booking.end, end)));
+                overlapSingleBookings.emplace_back(max(booking.start, start), min(booking.end, end));
             }
         }
         
-        singleBookings.push_back(Interval(start, end));
+        singleBookings.emplace_back(start, end);
         return true;
     }
 };
